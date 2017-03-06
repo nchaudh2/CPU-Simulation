@@ -1,0 +1,29 @@
+the "D" instruction in latches is read. this instruction represents the instruction in the decode stage of the previous cycle.
+
+if (instr is not a controlFlowInstruction i.e any of BNZ|BZ|JUMP|BAL|HALT)
+
+{
+
+
+
+
+}
+
+else
+  {
+
+	set branchFUflag = true.
+	move "E" of stages to "E" of latches
+	add NOP in "E" of stages.
+
+  }
+	
+
+
+if(branchFUflag = false)
+{
+	moveInstruction("E", "D");
+        Move "E" of stages to "E" of latches,
+        and move "D" of latches to the "E" of stages.
+
+}

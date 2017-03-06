@@ -1,0 +1,4 @@
+Imlemented by the method memory()
+
+move instruction from Ex-2 or Delay stage of the previous cycle to the Mem stage of the current stage. 
+

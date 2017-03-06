@@ -1,0 +1,6 @@
+instruction from the "E" of latches is processed by the alu2Method().
+moveInstruction("E2", "E");
+move "E2" of stages to "E2" of latches and  
+move "E" of latches to "E2" of stages.
+
+if there is no instruction in "E" of latches then Add NOP in "E2" of stages.

@@ -1,0 +1,11 @@
+if(latches contains an instruction at "B1")
+{
+   move "Dly" of stages to "Dly" of latches and 
+   move "B1" of latches to "Dly" of stages.
+   i.e move instruction from Branch stage of the previous cycle to the Delay stage of    current cycle. 
+}
+else
+{
+   Add NOP in the Delay stage of current cycle
+
+}

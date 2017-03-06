@@ -1,0 +1,131 @@
+process dependent instructions correctly without forwarding:
+
+MOVC R0, #1
+MOVC R1, #25
+MOVC R2, #5
+ADD R0, R0, R0
+MUL R1, R0, R2
+
+
+
+
+
+stages
+
+F  MUL R1, R0, R2
+D  ADD R0, R0, R0  
+E  MOVC R2 #5
+E2 MOVC R1 #25
+B1 BNZ #-8
+M  MOVC R0 #1
+
+
+latchs
+
+F  ADD R0, R0, R0
+D  BNZ #-8
+E  MOVC R1 #25
+E2 MOVC R0 #1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					if (latches.get("D").getOperation().equals(Operations.BAL)) {
+						specialRegister = currentPC - 1;
+					}
+					if (latches.get("D").getDestination() != null
+							&& registerFile.containsKey(latches.get("D").getDestination().getKey())) {
+						registerVal = registerFile.get(latches.get("D").getDestination().getKey());
+
+						if (registerVal == null)
+							registerVal = 0;
+					}
+					if (stages.get("E").getDestination() != null) {
+						dest = stages.get("E").getDestination().getValue();
+					}
+					Integer pcCounter = functionUnit.predictBranch(latches.get("D"), dest, currentPC, registerVal,specialRegister);
+					if (currentPC != pcCounter) {
+						currentPC = pcCounter;
+						currentFilePointer = currentPC - 20000; //// update file
+																//// pointer
+						flushRegisterValues = true;
+					}
+				
+
+
+
+
+

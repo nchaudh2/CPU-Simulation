@@ -1,0 +1,16 @@
+Fetch stage: implemented by the method fetchInstruction().
+
+1) Instruction in the decode stage is checked for dependency(flow) with the    instruction in the Execute 1 stage.
+   if any of the sources for this instruction are dependent on the destination of the          instruction in the E stage then a flag "isSourceValid" is set to false.
+
+   if "isSourceValid"  is set to false:
+         No new instruction is fetched in the pipeline.
+
+   if "isSourceValid"  is set to True:
+         1. A new instruction is fetched, currentFilePointer is incremented by 1, and
+            currentPC is incrementd by 4 (to point to the next instruction).
+	 2. instruction in the "F" of stages is moved to the "F" of latches and the newly                fetched instruction is Put in the "F" of stages 
+
+   
+ 
+	  

@@ -1,0 +1,10 @@
+if isSourceValid(set in the fetch stage) is false
+   add NOP in the "D" of latches: this is done to ensure a NOP in the ALU1 stage of the    stages when we swap instruction later in the AlU1 stage
+
+if isSourceValid = true
+	1. process the instruction in the fetch stage of the latches and store it in latchs.            (check if valid data is present in the source registers for that instruction)
+	2. moveInstruction("D", "F");
+	   Move instruction in the "D" stage of stages to to the "D" stage of latches,
+           and move instruction from the "F" stage of latches to the "D" stage of stages.
+		
+	

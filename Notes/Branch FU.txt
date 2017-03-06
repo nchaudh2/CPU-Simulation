@@ -1,0 +1,38 @@
+Operations of the Branch FU are implemented by the method branchInstruction().
+
+"D" of latches: represents the instruction in the decode stage of the previous cycle
+
+control Flow Instruction: means any of BNZ|BZ|JUMP|BAL|HALT
+
+step1: move instructions
+
+	if ("D" of latches is a control Flow Instruction)
+           {  
+	 	move "D" of latches to the branch stage of the current cycle   
+    	   }
+	else
+    	  {
+		add a NOP to the branch stage of the current cycle.
+    	  }
+
+step2: process branch instructions
+
+    if ("D" of latches is a control Flow Instruction)
+      {
+	if instruction is BAL: special register is set to (current PC - 1)
+	
+	if instruction is BNZ: result of evaluation of instruction in the E2 stage of the         current cycle is stored in a temporary varaible dest .
+	
+	process branch instructions and calcualte updated PC
+	if(currentPC is not equal to UpdatedPC)
+	   {
+            Update currentPC and current file pointer values.
+	    set flag flushRegisterValues equal to true.
+	   }
+
+	if(flushRegisterValues = true)
+	  {
+		Add NOPs in the "F" and "D" of stages.
+          }	
+			   
+      }

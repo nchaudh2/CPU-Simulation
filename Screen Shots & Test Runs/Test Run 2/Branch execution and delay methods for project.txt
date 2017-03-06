@@ -1,0 +1,108 @@
+Make Branch execution and delay methods for project
+
+4000 MOVC R0, #1
+4004 MOVC R1, #25
+4008 MOVC R2, #5
+4012 ADD R0, R0, R0
+4016 MUL R1, R0, R2
+4020 BNZ #-24
+
+
+stages
+
+F   MOVC R1 #25
+D   MOVC R0 #1
+E   NOP
+E2  NOP
+B1  NOP
+Dly NOP
+M   BNZ #-24
+W   MUL R1 R2 R2
+
+
+latches
+
+F   MOVC R0 #1
+D   NOP
+E   NOP
+E2  NOP
+B1  NOP
+Dly BNZ #-24
+M   MUL R1 R2 R2
+W   NOP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+
+
