@@ -1,0 +1,2 @@
+# CPU-Simulation
+This project simulated the entire functioning of a 5-stage pipelined Computer Processor. The main objective of the Simulator was to capture the flow of data and control information inside a CPU and illustrate how machine level instructions are executed. Various Data-structures are implemented to process instructions and the execution cycle of machine code is represented graphically, starting with the decoding of the bits in the opcode, following the datapaths of the memory and registers. 
